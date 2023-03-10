@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(load_db)
 
+# copy database to build directory for testing
+configure_file(phreeqc.dat phreeqc.dat COPYONLY)
+
 # this could have been specified on the command line with
 # cmake -DCMAKE_PREFIX_PATH=
 # set CMAKE_PREFIX_PATH to the location where phreeqcrm is installed
@@ -24,3 +27,8 @@ if(OpenMP_FOUND)
 endif()
 target_include_directories(load_db PRIVATE ${PhreeqcRM_INC})
 target_link_libraries(load_db PRIVATE ${PhreeqcRM_LIB})
+
+# optionally add support for testing
+# cd build && ctest && cd .. (newer cmake versions: ctest --test-dir build)
+enable_testing()
+add_test(run load_db)

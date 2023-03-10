@@ -10,10 +10,10 @@ int main(void)
   PhreeqcRM phreeqc_rm(nxyz, nthreads);
 
   if (phreeqc_rm.LoadDatabase("phreeqc.dat") != IRM_OK) {
-    std::cout << "ERROR: Couldn't load database.";
+    std::cout << "ERROR: Couldn't load database.\n";
     return EXIT_FAILURE;
   }
   
-  std::cout << "Sucessfully loaded database";
+  std::cout << "Sucessfully loaded database\n";
   return EXIT_SUCCESS;
 }
