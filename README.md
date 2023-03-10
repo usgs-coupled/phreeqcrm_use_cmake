@@ -44,5 +44,5 @@ Use the `-L` option to list cached variables and verify that the include directo
 ## Build your application
 
 ```
-cmake --build build
+cmake --build build --config Release 
 ```
