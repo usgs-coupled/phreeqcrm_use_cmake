@@ -1,0 +1,7 @@
+# phreeqcrm
+phreeqcrm-3.7.3-15968.tar.gz
+phreeqcrm-3.7.3-15968/
+phreeqcrm/
+
+# build directory (cmake -B build)
+build/
