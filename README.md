@@ -30,6 +30,19 @@ cmake --install phreeqcrm-3.7.3-15968/_build --config Release
 
 ## Create your CMakeLists.txt and add your source code
 
+see [src/CMakeLists.txt](src/CMakeLists.txt) and [src/main.cpp](src/main.cpp)
 
-## Build your app
 
+## Configure your application
+
+```
+cmake -S src -B build -L
+```
+Use the `-L` option to list cached variables and verify that the include directory and library are correct
+
+
+## Build your application
+
+```
+cmake --build build
+```
