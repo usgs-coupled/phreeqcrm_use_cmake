@@ -8,3 +8,4 @@ phreeqcrm-*/
 # build directories (cmake -B ...)
 build_debug/
 build_release/
+build_multi/

@@ -15,35 +15,30 @@ if (NOT EXISTS phreeqcrm-${RM_VER})
   )
 endif()
 
-# (Unix Makefiles, Ninja, ...)
-# TODO verify single-config generator
+# (Ninja Multi-Config, Visual Studio ...)
+# TODO verify multi-config generator
 
-# configure phreeqcrm (debug)
+# configure phreeqcrm
 execute_process(COMMAND
-  ${CMAKE_COMMAND} -S phreeqcrm-${RM_VER} -B phreeqcrm-${RM_VER}/_debug -DCMAKE_INSTALL_PREFIX:PATH=phreeqcrm -DCMAKE_BUILD_TYPE=Debug
+  ${CMAKE_COMMAND} -S phreeqcrm-${RM_VER} -B phreeqcrm-${RM_VER}/_multi -DCMAKE_INSTALL_PREFIX:PATH=phreeqcrm
 )
 
 # build phreeqcrm (debug)
 execute_process(COMMAND
-  ${CMAKE_COMMAND} --build phreeqcrm-${RM_VER}/_debug -j4
+  ${CMAKE_COMMAND} --build phreeqcrm-${RM_VER}/_multi --config Debug -j4
 )
 
 # install phreeqcrm (debug)
 execute_process(COMMAND
-  ${CMAKE_COMMAND} --install phreeqcrm-${RM_VER}/_debug
-)
-
-# configure phreeqcrm (release)
-execute_process(COMMAND
-  ${CMAKE_COMMAND} -S phreeqcrm-${RM_VER} -B phreeqcrm-${RM_VER}/_release -DCMAKE_INSTALL_PREFIX:PATH=phreeqcrm -DCMAKE_BUILD_TYPE=Release
+  ${CMAKE_COMMAND} --install phreeqcrm-${RM_VER}/_multi --config Debug
 )
 
 # build phreeqcrm (release)
 execute_process(COMMAND
-  ${CMAKE_COMMAND} --build phreeqcrm-${RM_VER}/_release -j4
+  ${CMAKE_COMMAND} --build phreeqcrm-${RM_VER}/_multi --config Release -j4
 )
 
-# install phreeqcrm (release)
+# install phreeqcrm (debug)
 execute_process(COMMAND
-  ${CMAKE_COMMAND} --install phreeqcrm-${RM_VER}/_release
+  ${CMAKE_COMMAND} --install phreeqcrm-${RM_VER}/_multi --config Release
 )
